@@ -1,0 +1,12 @@
+/* Estilo base del div */
+#miDiv {
+    padding: 20px;
+    border: 2px solid #333;
+    margin-bottom: 20px;
+    transition: background-color 0.3s;
+}
+
+/* Clase que se añadirá al div al pasar el ratón */
+.resaltado {
+    background-color: #f0c040;
+}
