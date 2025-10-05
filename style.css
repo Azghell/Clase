@@ -1,0 +1,123 @@
+/* style.css */
+
+/* Importar la fuente Inter */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap');
+
+body {
+    font-family: 'Inter', sans-serif;
+}
+
+/* Estilos generales para los botones */
+.btn {
+    @apply px-4 py-2 rounded-lg font-semibold text-sm transition-colors duration-200;
+}
+
+.btn-primary {
+    @apply bg-blue-600 text-white hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2;
+}
+
+.btn-secondary {
+    @apply bg-gray-200 text-gray-800 hover:bg-gray-300 focus:outline-none focus:ring-2 focus:ring-gray-400 focus:ring-offset-2;
+}
+
+.btn-danger {
+    @apply bg-red-500 text-white hover:bg-red-600 focus:outline-none focus:ring-2 focus:ring-red-400 focus:ring-offset-2;
+}
+
+/* Estilos para las pestañas de los editores */
+.tab-button {
+    @apply text-gray-600 hover:bg-gray-200;
+}
+
+.tab-button.active-tab {
+    @apply bg-blue-500 text-white hover:bg-blue-600;
+}
+
+/* Contenedores de los editores */
+.code-editor {
+    height: 100%; /* Asegura que CodeMirror ocupe todo el espacio disponible */
+    width: 100%;
+    position: absolute; /* Para superponer los editores y mostrar solo el activo */
+    top: 0;
+    left: 0;
+    opacity: 0; /* Ocultar por defecto */
+    visibility: hidden;
+    transition: opacity 0.3s ease-in-out, visibility 0.3s ease-in-out;
+}
+
+.code-editor.active-tab-content {
+    opacity: 1; /* Mostrar el editor activo */
+    visibility: visible;
+}
+
+/* Estilos para CodeMirror */
+.CodeMirror {
+    height: 100% !important; /* Sobrescribe la altura por defecto de CodeMirror */
+    font-size: 0.9rem; /* Tamaño de fuente para el editor */
+    line-height: 1.5;
+    border-radius: 0.75rem; /* Bordes redondeados para el editor */
+}
+
+/* Ajustes para la consola de salida */
+#console-output {
+    background-color: #1a202c; /* Fondo oscuro para la consola */
+    color: #48bb78; /* Texto verde para la salida */
+    padding: 1rem;
+    border-radius: 0.5rem;
+    font-family: 'Menlo', 'Monaco', 'Consolas', 'Liberation Mono', 'Courier New', monospace;
+    overflow-x: auto; /* Permite desplazamiento horizontal */
+}
+
+/* Ajustes para el panel de sugerencias/advertencias */
+#suggestions-warnings {
+    font-family: 'Menlo', 'Monaco', 'Consolas', 'Liberation Mono', 'Courier New', monospace;
+    white-space: pre-wrap; /* Mantiene saltos de línea y espacios */
+    max-height: 100px; /* Altura máxima para el panel */
+    overflow-y: auto; /* Desplazamiento vertical si el contenido es largo */
+}
+
+/* Estilos para el iframe de previsualización */
+#live-preview {
+    border-radius: 0.75rem; /* Bordes redondeados */
+}
+
+/* Media Queries para responsividad */
+@media (max-width: 1023px) { /* Para pantallas más pequeñas que lg (tablet y móvil) */
+    main {
+        grid-template-columns: 1fr; /* Una columna en pantallas pequeñas */
+    }
+
+    /* Asegurar que los paneles ocupen el 100% del ancho */
+    section {
+        width: 100%;
+    }
+
+    /* Ajustes para los botones en pantallas pequeñas */
+    .p-4.flex.flex-wrap.gap-2.justify-between.items-center {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .flex-grow.justify-center.md\:justify-start {
+        width: 100%;
+        justify-content: center;
+    }
+
+    .flex-wrap.justify-center.md\:justify-end {
+        width: 100%;
+        justify-content: center;
+    }
+
+    .tab-button {
+        flex-grow: 1; /* Las pestañas ocupan el espacio disponible */
+        text-align: center;
+    }
+}
+
+/* Ajuste para que el editor CodeMirror no desborde en móviles */
+.CodeMirror-lines {
+    word-break: break-all; /* Rompe palabras largas para evitar desbordamiento horizontal */
+}
+
+
+
